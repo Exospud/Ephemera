@@ -22,5 +22,13 @@ __meta__ = {
 }
 
 [node name="Camera" type="Camera2D" parent="."]
+visible = false
 current = true
 script = ExtResource( 4 )
+
+[node name="TileHover" type="Polygon2D" parent="."]
+color = Color( 0, 0, 0, 0.117647 )
+polygon = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+__meta__ = {
+"_edit_lock_": true
+}

@@ -3,8 +3,8 @@ extends Camera2D
 
 export var scroll_speed: float = 250
 
-
 onready var _map : TileMap = $"../Map"
+
 var _stage_scale := 3.0;
 
 
