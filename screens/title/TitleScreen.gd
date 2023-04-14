@@ -12,7 +12,7 @@ func _process(delta):
 
 ## Sends the user to the level select screen
 func _to_level_select():
-	get_tree().change_scene("res://screens/levels/LevelSelectScreen.tscn")
+	get_tree().change_scene("res://screens/select/LevelSelectScreen.tscn")
 
 
 ## Terminates the application

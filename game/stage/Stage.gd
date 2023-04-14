@@ -37,12 +37,15 @@ func _process(delta: float):
 
 ## Updates time elapsed if the attacking phase is active
 func _update_time(delta: float):
-	if not setup_phase:
+	if setup_phase:
+		_time_label.text = "Phase: Setup"
+	else:
+		_time_label.text = "Phase: Attack"
 		time_elapsed += delta
 		if time_elapsed > time_limit:
 			_end_turn()
 	
-	_time_label.text = "Seconds Left: " + str(ceil(time_limit - time_elapsed))
+	_time_label.text += "\nSeconds Left: " + str(ceil(time_limit - time_elapsed))
 
 
 ## Updates game state info to match the cell the user is currently hovering over

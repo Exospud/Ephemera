@@ -29,6 +29,7 @@ grow_horizontal = 1
 grow_vertical = 1
 custom_fonts/font = ExtResource( 2 )
 text = "Seconds Left: ??"
+align = 0
 
 [node name="PauseMenu" parent="HUD" instance=ExtResource( 1 )]
 visible = false

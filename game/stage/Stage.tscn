@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/tiles/terrain.tres" type="TileSet" id=1]
 [ext_resource path="res://game/stage/Stage.gd" type="Script" id=2]
 [ext_resource path="res://game/stage/Map.gd" type="Script" id=3]
 [ext_resource path="res://game/stage/Camera.gd" type="Script" id=4]
+[ext_resource path="res://game/levels/Level.tscn" type="PackedScene" id=5]
 
 [node name="Stage" type="Node2D"]
 script = ExtResource( 2 )
@@ -21,14 +22,19 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="TileHover" type="Polygon2D" parent="."]
+color = Color( 0, 0, 0, 0.117647 )
+polygon = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Level" parent="." instance=ExtResource( 5 )]
+
 [node name="Camera" type="Camera2D" parent="."]
 visible = false
 current = true
 script = ExtResource( 4 )
-
-[node name="TileHover" type="Polygon2D" parent="."]
-color = Color( 0, 0, 0, 0.117647 )
-polygon = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 __meta__ = {
 "_edit_lock_": true
 }

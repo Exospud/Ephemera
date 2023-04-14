@@ -40,7 +40,6 @@ func _physics_process(delta: float):
 ## Move the camera's view to the middle of the map
 func _reset_position():
 	var map_size = _map.cell_size * _map.get_used_rect().size
-	print(map_size)
 	position = map_size / 2;
 
 
