@@ -25,9 +25,9 @@ text = "Levels"
 
 [node name="TempPlayButton" parent="." instance=ExtResource( 2 )]
 anchor_left = 0.5
-anchor_top = 0.43
+anchor_top = 0.4
 anchor_right = 0.5
-anchor_bottom = 0.43
+anchor_bottom = 0.4
 text = "Test Level"
 __meta__ = {
 "_edit_lock_": true,
@@ -36,9 +36,9 @@ __meta__ = {
 
 [node name="BackButton" parent="." instance=ExtResource( 2 )]
 anchor_left = 0.5
-anchor_top = 0.55
+anchor_top = 0.52
 anchor_right = 0.5
-anchor_bottom = 0.55
+anchor_bottom = 0.52
 text = "Back"
 
 [connection signal="pressed" from="TempPlayButton" to="." method="_start_level"]
