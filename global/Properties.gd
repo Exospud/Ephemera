@@ -1,6 +1,6 @@
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+extends Node
+
+var level_unlock = 1
 
 
 # Called when the node enters the scene tree for the first time.

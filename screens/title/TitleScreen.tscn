@@ -28,7 +28,7 @@ anchor_left = 0.5
 anchor_top = 0.4
 anchor_right = 0.5
 anchor_bottom = 0.4
-text = "New Game"
+text = "Play"
 
 [node name="ExitButton" parent="." instance=ExtResource( 3 )]
 anchor_left = 0.5
@@ -36,3 +36,6 @@ anchor_top = 0.52
 anchor_right = 0.5
 anchor_bottom = 0.52
 text = "Exit"
+
+[connection signal="pressed" from="PlayButton" to="." method="_to_level_select"]
+[connection signal="pressed" from="ExitButton" to="." method="_exit"]

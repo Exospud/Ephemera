@@ -28,3 +28,4 @@ custom_fonts/font = ExtResource( 2 )
 text = "Seconds Left: ??"
 
 [node name="PauseMenu" parent="HUD" instance=ExtResource( 1 )]
+visible = false
