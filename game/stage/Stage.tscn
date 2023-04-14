@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/tiles/terrain.tres" type="TileSet" id=1]
+[ext_resource path="res://game/stage/Stage.gd" type="Script" id=2]
+[ext_resource path="res://game/stage/Map.gd" type="Script" id=3]
+
+[node name="Stage" type="Node2D"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Map" type="TileMap" parent="."]
+scale = Vector2( 3, 3 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 131073, 1, 0, 2, 2, 0, 131073, 3, 0, 2, 4, 0, 131073, 5, 0, 2, 6, 0, 131073, 7, 0, 2, 8, 0, 131073, 9, 0, 2, 65536, 0, 2, 65537, 0, 131073, 65538, 0, 2, 65539, 0, 131073, 65540, 0, 2, 65541, 0, 131073, 65542, 0, 2, 65543, 0, 131073, 65544, 0, 2, 65545, 0, 131073, 131072, 0, 131073, 131073, 0, 2, 131074, 0, 131073, 131075, 0, 2, 131076, 0, 131073, 131077, 0, 2, 131078, 0, 131073, 131079, 0, 2, 131080, 0, 131073, 131081, 0, 2, 196608, 0, 2, 196609, 0, 131073, 196610, 0, 2, 196611, 0, 131073, 196612, 0, 2, 196613, 0, 131073, 196614, 0, 2, 196615, 0, 131073, 196616, 0, 2, 196617, 0, 131073, 262144, 0, 131073, 262145, 0, 2, 262146, 0, 131073, 262147, 0, 2, 262148, 0, 131073, 262149, 0, 2, 262150, 0, 131073, 262151, 0, 2, 262152, 0, 131073, 262153, 0, 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}

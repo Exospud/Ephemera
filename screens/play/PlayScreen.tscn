@@ -1,31 +1,44 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://screens/play/PauseMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/fonts/LabelFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/ui/TextLabel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game/stage/Stage.tscn" type="PackedScene" id=4]
 
 [node name="PlayScreen" type="Node2D"]
 __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Stage" parent="." instance=ExtResource( 4 )]
+
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="TurnLabel" parent="HUD" instance=ExtResource( 3 )]
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 170.0
-margin_bottom = 24.0
+grow_horizontal = 1
+grow_vertical = 1
 custom_fonts/font = ExtResource( 2 )
 text = "Turn ??/??"
 
 [node name="TimeLabel" parent="HUD" instance=ExtResource( 3 )]
 margin_left = 20.0
 margin_top = 60.0
-margin_right = 272.0
-margin_bottom = 24.0
+grow_horizontal = 1
+grow_vertical = 1
 custom_fonts/font = ExtResource( 2 )
 text = "Seconds Left: ??"
 
 [node name="PauseMenu" parent="HUD" instance=ExtResource( 1 )]
 visible = false
+
+[node name="TileInfo" parent="HUD" instance=ExtResource( 3 )]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_top = 20.0
+margin_right = -20.0
+grow_horizontal = 0
+grow_vertical = 1
+custom_fonts/font = ExtResource( 2 )
+text = ""

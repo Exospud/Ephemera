@@ -13,13 +13,13 @@ func _toggle_pause():
 	visible = get_tree().paused
 
 
-# Resets all progress and unpauses the game
+## Resets all progress and unpauses the game
 func _reset_stage():
 	_toggle_pause()
 	get_tree().reload_current_scene()
 
 
-## Quits the game and enters the title screen
+## Quits the game and returns to the title screen
 func _quit_to_title():
 	_toggle_pause()
 	get_tree().change_scene("res://screens/title/TitleScreen.tscn")
