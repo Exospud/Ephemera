@@ -1,9 +1,25 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://game/levels/Level.gd" type="Script" id=1]
+[ext_resource path="res://game/entities/towers/Tower.tscn" type="PackedScene" id=3]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Tower" parent="." groups=["entities"] instance=ExtResource( 3 )]
+cell = Vector2( 9, 0 )
+
+[node name="Tower2" parent="." groups=["entities"] instance=ExtResource( 3 )]
+cell = Vector2( 9, 1 )
+
+[node name="Tower3" parent="." groups=["entities"] instance=ExtResource( 3 )]
+cell = Vector2( 9, 2 )
+
+[node name="Tower4" parent="." groups=["entities"] instance=ExtResource( 3 )]
+cell = Vector2( 9, 3 )
+
+[node name="Tower5" parent="." groups=["entities"] instance=ExtResource( 3 )]
+cell = Vector2( 9, 4 )

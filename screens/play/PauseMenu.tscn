@@ -48,4 +48,4 @@ text = "Quit"
 
 [connection signal="pressed" from="ResumeButton" to="." method="_toggle_pause"]
 [connection signal="pressed" from="RestartButton" to="." method="_reset_stage"]
-[connection signal="pressed" from="QuitButton" to="." method="_quit_to_title"]
+[connection signal="pressed" from="QuitButton" to="." method="_to_title"]

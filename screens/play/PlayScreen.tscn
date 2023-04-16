@@ -31,15 +31,17 @@ custom_fonts/font = ExtResource( 2 )
 text = "Seconds Left: ??"
 align = 0
 
-[node name="PauseMenu" parent="HUD" instance=ExtResource( 1 )]
-visible = false
-
 [node name="TileInfo" parent="HUD" instance=ExtResource( 3 )]
 anchor_left = 1.0
 anchor_right = 1.0
+margin_left = -20.0
 margin_top = 20.0
 margin_right = -20.0
+margin_bottom = 44.0
 grow_horizontal = 0
 grow_vertical = 1
 custom_fonts/font = ExtResource( 2 )
 text = ""
+
+[node name="PauseMenu" parent="HUD" instance=ExtResource( 1 )]
+visible = false

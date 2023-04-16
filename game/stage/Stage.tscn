@@ -22,7 +22,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileHover" type="Polygon2D" parent="."]
+[node name="TileHover" type="Polygon2D" parent="Map"]
 color = Color( 0, 0, 0, 0.117647 )
 polygon = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 __meta__ = {

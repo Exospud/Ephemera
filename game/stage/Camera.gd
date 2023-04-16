@@ -2,11 +2,10 @@ extends Camera2D
 
 
 export var scroll_speed: float = 250
+export var init_stage_scale := 3.0
 
 onready var _map : TileMap = $"../Map"
-
-var _stage_scale := 3.0;
-
+onready var _stage_scale := init_stage_scale
 
 ## Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,7 +39,9 @@ func _physics_process(delta: float):
 ## Move the camera's view to the middle of the map
 func _reset_position():
 	var map_size = _map.cell_size * _map.get_used_rect().size
-	position = map_size / 2;
+	position = map_size * 0.5;
+	_stage_scale = init_stage_scale
+	adjust_stage_scale(0)
 
 
 ## Increases or decreases the camera's zoom factor by the specified amount

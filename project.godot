@@ -8,6 +8,46 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Entity",
+"class": "Deployable",
+"language": "GDScript",
+"path": "res://game/entities/Deployable.gd"
+}, {
+"base": "Area2D",
+"class": "Entity",
+"language": "GDScript",
+"path": "res://game/entities/Entity.gd"
+}, {
+"base": "Node2D",
+"class": "Level",
+"language": "GDScript",
+"path": "res://game/levels/Level.gd"
+}, {
+"base": "Entity",
+"class": "Projectile",
+"language": "GDScript",
+"path": "res://game/entities/projectiles/Projectile.gd"
+}, {
+"base": "Deployable",
+"class": "Tower",
+"language": "GDScript",
+"path": "res://game/entities/towers/Tower.gd"
+}, {
+"base": "Deployable",
+"class": "Unit",
+"language": "GDScript",
+"path": "res://game/entities/units/Unit.gd"
+} ]
+_global_script_class_icons={
+"Deployable": "",
+"Entity": "",
+"Level": "",
+"Projectile": "",
+"Tower": "",
+"Unit": ""
+}
+
 [application]
 
 config/name="GamedevJS"
