@@ -9,17 +9,17 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Tower" parent="." groups=["entities"] instance=ExtResource( 3 )]
+[node name="Tower" parent="." instance=ExtResource( 3 )]
 cell = Vector2( 9, 0 )
 
-[node name="Tower2" parent="." groups=["entities"] instance=ExtResource( 3 )]
+[node name="Tower2" parent="." instance=ExtResource( 3 )]
 cell = Vector2( 9, 1 )
 
-[node name="Tower3" parent="." groups=["entities"] instance=ExtResource( 3 )]
+[node name="Tower3" parent="." instance=ExtResource( 3 )]
 cell = Vector2( 9, 2 )
 
-[node name="Tower4" parent="." groups=["entities"] instance=ExtResource( 3 )]
+[node name="Tower4" parent="." instance=ExtResource( 3 )]
 cell = Vector2( 9, 3 )
 
-[node name="Tower5" parent="." groups=["entities"] instance=ExtResource( 3 )]
+[node name="Tower5" parent="." instance=ExtResource( 3 )]
 cell = Vector2( 9, 4 )

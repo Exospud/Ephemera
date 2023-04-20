@@ -3,7 +3,7 @@
 [ext_resource path="res://game/entities/Entity.gd" type="Script" id=1]
 [ext_resource path="res://assets/missing.png" type="Texture" id=2]
 
-[node name="Entity" type="Area2D"]
+[node name="Entity" type="Area2D" groups=["entities"]]
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true

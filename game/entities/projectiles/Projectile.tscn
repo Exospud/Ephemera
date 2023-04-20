@@ -9,6 +9,7 @@ extents = Vector2( 4, 4 )
 
 [node name="Projectile" groups=["projectiles"] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+max_health = -1
 damage = 1
 pierce = 1
 velocity = Vector2( -10, 0 )

@@ -13,7 +13,7 @@ alignment = 0
 cell = Vector2( 0, 0 )
 velocity = Vector2( 1, 0 )
 attack_damage = 1
-attack_rate = 1
+attack_delay = 0.5
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 3 )
@@ -23,3 +23,7 @@ shape = SubResource( 1 )
 
 [node name="AttackTimer" type="Timer" parent="." index="2"]
 one_shot = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_enter"]
+[connection signal="area_exited" from="." to="." method="_on_area_exit"]
+[connection signal="timeout" from="AttackTimer" to="." method="_attack"]

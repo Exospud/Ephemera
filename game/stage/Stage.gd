@@ -7,7 +7,6 @@ onready var _level := $Level
 onready var _turn_label : Label = $"../HUD/TurnLabel"
 onready var _time_label : Label = $"../HUD/TimeLabel"
 
-# TODO: redesign and replace system
 var turn_number := 0
 var time_elapsed := 0.0
 var setup_phase := true
@@ -50,17 +49,24 @@ func _update_time(delta: float):
 ## Ends the setup phase and starts the current turn
 func _start_turn():
 	setup_phase = false
+	
+	for e in get_tree().get_nodes_in_group("entities"):
+		e.on_turn_start()
 
 
 ## Completes the current turn and advances the current game by one turn if possible
 func _end_turn():
-	for e in get_tree().get_nodes_in_group("projectiles"):
-		e.on_death()
-	for e in get_tree().get_nodes_in_group("units"):
-		e.on_death()
+	for e in get_tree().get_nodes_in_group("entities"):
+		e.on_turn_end()
+	
+	# The level is considered won if all towers are destroyed
+	if get_tree().get_nodes_in_group(str(Entity.Alignment.ENEMY)).empty():
+		get_tree().change_scene("res://screens/win/WinScreen.tscn")
+		return
 	
 	turn_number += 1
 	
+	# The level is considered lost if the turn limit has been exceeded
 	if turn_number > _level.max_turns:
 		get_tree().change_scene("res://screens/loss/LossScreen.tscn")
 	
