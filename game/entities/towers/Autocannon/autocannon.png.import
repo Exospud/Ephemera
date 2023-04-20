@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cannon.png-de3fcf9248f43e3d7abfaf153dc0c38d.stex"
+path="res://.import/autocannon.png-4aa2370e972c060288b8e9415872cc63.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/entities/towers/cannon.png"
-dest_files=[ "res://.import/cannon.png-de3fcf9248f43e3d7abfaf153dc0c38d.stex" ]
+source_file="res://game/entities/towers/Autocannon/autocannon.png"
+dest_files=[ "res://.import/autocannon.png-4aa2370e972c060288b8e9415872cc63.stex" ]
 
 [params]
 

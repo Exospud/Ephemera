@@ -15,7 +15,8 @@ func _use_ability():
 	var projectile := PL_PROJECTILE.instance()
 	
 	# Fire projectile and resets attack delay
-	projectile.init(position, 0, alignment)
+	# TODO: replace with anchor system
+	projectile.init(position + Vector2(-15, -4), 0, alignment)
 	_level.add_child(projectile)
 
 

@@ -17,7 +17,7 @@ func has_entity(cell: Vector2) -> bool:
 
 ## Returns true if a new unit can be placed on the specified cell
 func cell_available(cell: Vector2) -> bool:
-	return _map.in_map_bounds(cell) && not has_entity(cell)
+	return _map.is_valid_cell(cell) && not has_entity(cell)
 
 
 ## Returns the entity occupying this cell, or null if there is none

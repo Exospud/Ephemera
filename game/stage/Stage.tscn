@@ -29,6 +29,14 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Line2D" type="Line2D" parent="Map"]
+points = PoolVector2Array( 160, 0, 160, 160 )
+width = 1.0
+default_color = Color( 1, 0.4, 0.4, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="Level" parent="." instance=ExtResource( 5 )]
 
 [node name="Camera" type="Camera2D" parent="."]
@@ -38,3 +46,9 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="EndTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="EndTimer" to="." method="_end_game"]
