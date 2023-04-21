@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://game/levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://game/entities/towers/Cannon/Cannon.tscn" type="PackedScene" id=2]
 [ext_resource path="res://game/entities/towers/Autocannon/Autocannon.tscn" type="PackedScene" id=3]
 [ext_resource path="res://game/entities/towers/Barricade/Barricade.tscn" type="PackedScene" id=4]
+[ext_resource path="res://game/entities/towers/Capacitor/Capacitor.tscn" type="PackedScene" id=5]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
@@ -18,7 +19,7 @@ cell = Vector2( 9, 0 )
 cell = Vector2( 9, 1 )
 
 [node name="Autocannon" parent="." instance=ExtResource( 3 )]
-cell = Vector2( 9, 2 )
+cell = Vector2( 8, 2 )
 
 [node name="Cannon3" parent="." instance=ExtResource( 2 )]
 cell = Vector2( 9, 3 )
@@ -27,13 +28,19 @@ cell = Vector2( 9, 3 )
 cell = Vector2( 9, 4 )
 
 [node name="Cannon5" parent="." instance=ExtResource( 2 )]
-cell = Vector2( 8, 0 )
-
-[node name="Cannon6" parent="." instance=ExtResource( 2 )]
 cell = Vector2( 8, 1 )
 
-[node name="Cannon7" parent="." instance=ExtResource( 2 )]
+[node name="Cannon6" parent="." instance=ExtResource( 2 )]
 cell = Vector2( 7, 0 )
 
 [node name="Barricade" parent="." instance=ExtResource( 4 )]
 cell = Vector2( 7, 4 )
+
+[node name="Capacitor" parent="." instance=ExtResource( 5 )]
+cell = Vector2( 8, 0 )
+
+[node name="Capacitor2" parent="." instance=ExtResource( 5 )]
+cell = Vector2( 9, 2 )
+
+[node name="Capacitor3" parent="." instance=ExtResource( 5 )]
+cell = Vector2( 8, 4 )

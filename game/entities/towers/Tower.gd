@@ -11,7 +11,7 @@ onready var _attack_timer = $AttackTimer
 
 ## TEMP: Fires the tower's weapon
 func _use_ability():
-	if not _has_target():
+	if not _has_target() or not _has_power():
 		_attack_timer.start(0.1)
 		return
 	
@@ -20,7 +20,7 @@ func _use_ability():
 	
 	# Fire projectile
 	# TODO: replace with anchor system
-	projectile.init(position + Vector2(-15, -4), 0, alignment)
+	projectile.init(position + Vector2(-15, -5), 0, alignment)
 	_level.add_child(projectile)
 	_attack_timer.start(attack_delay)
 
@@ -39,6 +39,17 @@ func _has_target() -> bool:
 		if target_cell.x > self.cell.x:
 			continue
 		if target_cell.y == self.cell.y:
+			return true
+	
+	return false
+
+
+func _has_power() -> bool:
+	for e in get_tree().get_nodes_in_group("powered"):
+		if e.cell.distance_squared_to(cell) > 1:
+			continue
+		
+		if e.is_in_group(str(alignment)):
 			return true
 	
 	return false
