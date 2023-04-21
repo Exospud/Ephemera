@@ -101,7 +101,7 @@ func _end_turn():
 	turn_number += 1
 	setup_phase = true
 	time_elapsed = 0.0
-	energy = 5 + sqrt(time_remaining)
+	energy = 5 + sqrt(max(0, time_remaining - 1))
 	_turn_label.text = "Turn " + str(turn_number) + "/" + str(_level.max_turns)
 
 

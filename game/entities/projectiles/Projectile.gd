@@ -4,19 +4,19 @@ extends Entity
 
 export var damage := 1
 export var pierce := 1
-export(Vector2) var velocity := Vector2.LEFT * 10 # tiles/second
+export var speed := 10
 
 
 ## Sets the projectile's initial values
 func init(pos, rot, align):
 	self.position = pos
-	self.rotation = rot + PI/2
+	self.rotation = rot + PI*0.5
 	self.alignment = align
 
 
 ## Called at a constant rate. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	position += 32 * velocity * delta
+	position += 32 * speed * delta * Vector2.LEFT.rotated(rotation - PI*0.5)
 	_check_bounds()
 
 

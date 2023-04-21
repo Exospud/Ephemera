@@ -1,7 +1,7 @@
 class_name Level
 extends Node2D
 
-const PL_UNIT := preload("res://game/entities/units/Unit.tscn")
+const PL_UNIT := preload("res://game/entities/units/snaser/Snaser.tscn")
 
 onready var _map := $"../Map"
 

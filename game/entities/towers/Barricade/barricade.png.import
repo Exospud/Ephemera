@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/snider.png-a2507f4c7b44dab56ec84b0a430a15c5.stex"
+path="res://.import/barricade.png-7b0d8a5bacad1632a987f84f17990c77.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/entities/units/snider.png"
-dest_files=[ "res://.import/snider.png-a2507f4c7b44dab56ec84b0a430a15c5.stex" ]
+source_file="res://game/entities/towers/Barricade/barricade.png"
+dest_files=[ "res://.import/barricade.png-7b0d8a5bacad1632a987f84f17990c77.stex" ]
 
 [params]
 

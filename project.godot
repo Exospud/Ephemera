@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://game/entities/projectiles/Projectile.gd"
 }, {
+"base": "Unit",
+"class": "Snaser",
+"language": "GDScript",
+"path": "res://game/entities/units/Snaser/Snaser.gd"
+}, {
 "base": "Deployable",
 "class": "Tower",
 "language": "GDScript",
@@ -44,6 +49,7 @@ _global_script_class_icons={
 "Entity": "",
 "Level": "",
 "Projectile": "",
+"Snaser": "",
 "Tower": "",
 "Unit": ""
 }
