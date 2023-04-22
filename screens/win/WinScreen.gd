@@ -12,7 +12,12 @@ func _process(delta):
 
 ## Initializes and plays the next available level
 func _next_level():
-	print("Not implemented yet :(")
+	var level_unlocks : Array = Properties.level_assets[Properties.current_level].unlocks.levels
+	
+	if not level_unlocks.empty():
+		Properties.current_level = level_unlocks[0]
+	
+	get_tree().change_scene("res://screens/play/PlayScreen.tscn")
 
 
 ## Renitializes and replays the last attempted level

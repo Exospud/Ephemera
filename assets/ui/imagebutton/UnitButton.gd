@@ -3,7 +3,7 @@ extends Button
 
 export(Texture) var texture = preload("res://assets/missing.png")
 export var label_text := ""
-export(Level.Spawns) var spawn : int
+export(Properties.Units) var spawn : int
 
 onready var _stage := $"../../../Stage"
 

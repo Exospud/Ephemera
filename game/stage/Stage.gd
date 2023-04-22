@@ -19,7 +19,7 @@ var can_place := false
 
 ## Called when the node enters the scene tree for the first time.
 func _ready():
-	var new_level = Properties.level_assets[Properties.current_level].instance()
+	var new_level = Properties.level_assets[Properties.current_level].scene.instance()
 	add_child(new_level)
 	_level = new_level
 	
@@ -60,7 +60,7 @@ func _attempt_spawn():
 	if selected_unit < 0:
 		return
 		
-	var cost : int = Level.spawn_assets[selected_unit].cost
+	var cost : int = Properties.unit_assets[selected_unit].cost
 	
 	if energy < cost:
 		return
@@ -121,6 +121,8 @@ func _end_turn():
 
 func _end_game():
 	if get_tree().get_nodes_in_group(str(Entity.Alignment.ENEMY)).empty():
+		var level_unlocks : Array = Properties.level_assets[Properties.current_level].unlocks.levels
+		Properties.unlocked_levels.append_array(level_unlocks)
 		get_tree().change_scene("res://screens/win/WinScreen.tscn")
 	else:
 		get_tree().change_scene("res://screens/loss/LossScreen.tscn")

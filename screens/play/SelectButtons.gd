@@ -15,7 +15,7 @@ func set_buttons(level: Level):
 	## Generating buttons according to units allowed in current level
 	for i in range(0, level.spawnable.size()):
 		var unit_button = PL_UNIT_BUTTON.instance()
-		var spawn = level.spawn_assets[level.spawnable[i]]
+		var spawn = Properties.unit_assets[level.spawnable[i]]
 		unit_button.texture = spawn.texture
 		unit_button.label_text = spawn.cost
 		unit_button.spawn = level.spawnable[i]

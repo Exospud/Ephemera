@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://game/entities/towers/Tower.tscn" type="PackedScene" id=1]
-[ext_resource path="res://game/entities/towers/Cannon/cannon.png" type="Texture" id=2]
+[ext_resource path="res://game/entities/towers/Turret/turret.png" type="Texture" id=2]
 
 [node name="Cannon" instance=ExtResource( 1 )]
 
