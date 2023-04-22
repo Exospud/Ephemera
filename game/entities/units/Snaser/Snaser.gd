@@ -1,5 +1,4 @@
-class_name Snaser
-extends Unit
+class_name Snaser extends Unit
 
 
 const PL_PROJECTILE := preload("res://game/entities/projectiles/Projectile.tscn")

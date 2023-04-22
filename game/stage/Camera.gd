@@ -34,6 +34,9 @@ func _physics_process(delta: float):
 	
 	if Input.is_action_pressed("ui_zoom_out"):
 		adjust_stage_scale(-delta)
+	
+	if Input.is_action_pressed("ui_accept"):
+		_reset_position()
 
 
 ## Move the camera's view to the middle of the map

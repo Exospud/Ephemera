@@ -1,5 +1,4 @@
-class_name Projectile
-extends Entity
+class_name Projectile extends Entity
 
 
 export var damage := 1

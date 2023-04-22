@@ -1,13 +1,27 @@
-class_name Level
-extends Node2D
+class_name Level extends Node2D
 
-const PL_UNIT := preload("res://game/entities/units/snaser/Snaser.tscn")
+enum Spawns {SNIDER, SNASER}
 
-onready var _map := $"../Map"
-
+## Dictionary of assets for spawnable units
+const spawn_assets = {
+	Spawns.SNIDER: {
+		"cost": 1,
+		"scene": preload("res://game/entities/units/snider/Snider.tscn"),
+		"texture": preload("res://game/entities/units/Snider/snider.png")
+	},
+	Spawns.SNASER: {
+		"cost": 2,
+		"scene": preload("res://game/entities/units/Snaser/Snaser.tscn"),
+		"texture": preload("res://game/entities/units/Snaser/snaser.png")
+	}
+}
 
 export var max_turns := 10
 export var base_turn_duration := 15
+export var base_energy_gen := 5
+export(Array, Spawns) var spawnable := [Spawns.SNIDER]
+
+onready var _map := $"../Map"
 
 
 ## Returns true if this cell contains an entity
@@ -33,6 +47,6 @@ func get_entity(cell: Vector2) -> Node2D:
 #$ Spawns an entity at the specified cell if possible
 func spawn_entity(cell: Vector2):
 	if cell_available(cell):
-		var entity := PL_UNIT.instance()
+		var entity : Entity = spawn_assets[Spawns.SNASER].scene.instance()
 		add_child(entity)
 		entity.set_cell(cell)

@@ -1,5 +1,4 @@
-class_name Unit
-extends Deployable
+class_name Unit extends Deployable
 
 
 export(Vector2) var velocity := Vector2.RIGHT # tiles/second

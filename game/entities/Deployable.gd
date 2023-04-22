@@ -1,5 +1,4 @@
-class_name Deployable
-extends Entity
+class_name Deployable extends Entity
 
 
 export var cell: Vector2

@@ -6,6 +6,7 @@ onready var _level := $Level
 
 onready var _turn_label : Label = $"../HUD/TurnLabel"
 onready var _time_label : Label = $"../HUD/TimeLabel"
+onready var _select_buttons := $"../HUD/SelectButtons"
 onready var _end_timer : Timer = $EndTimer
 
 var turn_number : int = 0
@@ -16,6 +17,7 @@ var setup_phase := false
 
 ## Called when the node enters the scene tree for the first time.
 func _ready():
+	_select_buttons.set_buttons(_level)
 	time_elapsed = _level.base_turn_duration
 	_end_timer.set_paused(true)
 	_end_turn()
@@ -101,7 +103,7 @@ func _end_turn():
 	turn_number += 1
 	setup_phase = true
 	time_elapsed = 0.0
-	energy = 5 + sqrt(max(0, time_remaining - 1))
+	energy = _level.base_energy_gen + sqrt(max(0, time_remaining - 1))
 	_turn_label.text = "Turn " + str(turn_number) + "/" + str(_level.max_turns)
 
 

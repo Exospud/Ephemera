@@ -1,5 +1,4 @@
-class_name Entity
-extends Area2D
+class_name Entity extends Area2D
 
 
 enum Alignment { FRIENDLY, NEUTRAL, ENEMY }

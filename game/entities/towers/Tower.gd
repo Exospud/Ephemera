@@ -1,5 +1,4 @@
-class_name Tower
-extends Deployable
+class_name Tower extends Deployable
 
 
 const PL_PROJECTILE := preload("res://game/entities/projectiles/Projectile.tscn")
@@ -46,7 +45,7 @@ func _has_target() -> bool:
 
 func _has_power() -> bool:
 	for e in get_tree().get_nodes_in_group("powered"):
-		if e.cell.distance_squared_to(cell) > 1:
+		if abs(e.cell.x - cell.x) + abs(e.cell.y - cell.y) > 1:
 			continue
 		
 		if e.is_in_group(str(alignment)):
