@@ -2,7 +2,7 @@ extends Node2D
 
 
 onready var _map := $Map
-onready var _level := $Level
+onready var _level : Level
 
 onready var _turn_label : Label = $"../HUD/TurnLabel"
 onready var _time_label : Label = $"../HUD/TimeLabel"
@@ -19,6 +19,10 @@ var can_place := false
 
 ## Called when the node enters the scene tree for the first time.
 func _ready():
+	var new_level = Properties.level_assets[Properties.current_level].instance()
+	add_child(new_level)
+	_level = new_level
+	
 	_select_buttons.set_buttons(_level)
 	time_elapsed = _level.base_turn_duration
 	_end_timer.set_paused(true)

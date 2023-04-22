@@ -22,4 +22,4 @@ func _reset_stage():
 ## Quits the game and returns to the title screen
 func _to_title():
 	_toggle_pause()
-	get_tree().change_scene("res://screens/title/TitleScreen.tscn")
+	get_tree().change_scene("res://screens/select/LevelSelectScreen.tscn")

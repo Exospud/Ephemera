@@ -25,9 +25,9 @@ func set_buttons(level: Level):
 		
 		var button_size = unit_button.rect_size
 		
+		unit_button.margin_top = -margin_size.y - button_size.y
 		unit_button.margin_bottom = -margin_size.y
 		unit_button.margin_left = margin_size.x + i*(margin_size.x + button_size.x)
-		unit_button.margin_top = -margin_size.y - button_size.y
-		unit_button.margin_right = margin_size.x + button_size.x + i*(margin_size.x + button_size.x)
+		unit_button.margin_right = (i+1)*(margin_size.x + button_size.x)
 		
 		add_child(unit_button)
