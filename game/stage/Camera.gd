@@ -35,7 +35,7 @@ func _physics_process(delta: float):
 	if Input.is_action_pressed("ui_zoom_out"):
 		adjust_stage_scale(-delta)
 	
-	if Input.is_action_pressed("ui_accept"):
+	if Input.is_key_pressed(KEY_R):
 		_reset_position()
 
 

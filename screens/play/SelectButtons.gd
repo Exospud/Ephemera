@@ -1,7 +1,7 @@
 extends Control
 
 
-const PL_IMAGE_BUTTON := preload("res://assets/ui/imagebutton/ImageButton.tscn")
+const PL_UNIT_BUTTON := preload("res://assets/ui/imagebutton/UnitButton.tscn")
 
 
 ## Sets the GUI's unit buttons
@@ -14,18 +14,20 @@ func set_buttons(level: Level):
 	
 	## Generating buttons according to units allowed in current level
 	for i in range(0, level.spawnable.size()):
-		var image_button = PL_IMAGE_BUTTON.instance()
+		var unit_button = PL_UNIT_BUTTON.instance()
 		var spawn = level.spawn_assets[level.spawnable[i]]
-		image_button.texture = spawn.texture
-		image_button.label_text = spawn.cost
-		image_button.anchor_right = 0.0
-		image_button.anchor_top = 1.0
+		unit_button.texture = spawn.texture
+		unit_button.label_text = spawn.cost
+		unit_button.spawn = level.spawnable[i]
 		
-		var button_size = image_button.rect_size
+		unit_button.anchor_right = 0.0
+		unit_button.anchor_top = 1.0
 		
-		image_button.margin_bottom = -margin_size.y
-		image_button.margin_left = margin_size.x + i*(margin_size.x + button_size.x)
-		image_button.margin_top = -margin_size.y - button_size.y
-		image_button.margin_right = margin_size.x + button_size.x + i*(margin_size.x + button_size.x)
+		var button_size = unit_button.rect_size
 		
-		add_child(image_button)
+		unit_button.margin_bottom = -margin_size.y
+		unit_button.margin_left = margin_size.x + i*(margin_size.x + button_size.x)
+		unit_button.margin_top = -margin_size.y - button_size.y
+		unit_button.margin_right = margin_size.x + button_size.x + i*(margin_size.x + button_size.x)
+		
+		add_child(unit_button)

@@ -13,6 +13,8 @@ var turn_number : int = 0
 var time_elapsed : float = 0.0
 var energy : int = 0
 var setup_phase := false
+var selected_unit : int = -1
+var can_place := false
 
 
 ## Called when the node enters the scene tree for the first time.
@@ -48,14 +50,20 @@ func _check_groups():
 
 
 func _attempt_spawn():
-	var cost := 1
+	if not can_place:
+		return
+	
+	if selected_unit < 0:
+		return
+		
+	var cost : int = Level.spawn_assets[selected_unit].cost
 	
 	if energy < cost:
 		return
 	
 	var mouse_cell : Vector2 = _map.get_mouse_cell()
 	if _level.cell_available(mouse_cell) and mouse_cell.x < 5:
-		_level.spawn_entity(mouse_cell)
+		_level.spawn_entity(mouse_cell, selected_unit)
 		energy -= cost
 
 
@@ -103,7 +111,7 @@ func _end_turn():
 	turn_number += 1
 	setup_phase = true
 	time_elapsed = 0.0
-	energy = _level.base_energy_gen + sqrt(max(0, time_remaining - 1))
+	energy = _level.base_energy_gen
 	_turn_label.text = "Turn " + str(turn_number) + "/" + str(_level.max_turns)
 
 
