@@ -19,11 +19,14 @@ var can_place := false
 
 ## Called when the node enters the scene tree for the first time.
 func _ready():
-	var new_level = Properties.level_assets[Properties.current_level].scene.instance()
-	add_child(new_level)
-	_level = new_level
+	var assets = Properties.level_assets[Properties.current_level]
+	_level = assets.scene.instance()
+	add_child(_level)
 	
+	_select_buttons.clear_children()
 	_select_buttons.set_buttons(_level)
+	_select_buttons.set_intro_slides(assets.unlocks)
+	
 	time_elapsed = _level.base_turn_duration
 	_end_timer.set_paused(true)
 	_end_turn()
@@ -45,7 +48,7 @@ func _process(delta: float):
 # Check members of entity groups
 func _check_groups():
 	# The level is considered won if all towers are destroyed
-	if get_tree().get_nodes_in_group(str(Entity.Alignment.ENEMY)).empty():
+	if get_tree().get_nodes_in_group("powered").empty():
 		_end_timer.set_paused(false)
 	
 	# End the current turn if no friendly units remain
@@ -120,7 +123,7 @@ func _end_turn():
 
 
 func _end_game():
-	if get_tree().get_nodes_in_group(str(Entity.Alignment.ENEMY)).empty():
+	if get_tree().get_nodes_in_group("powered").empty():
 		var level_unlocks : Array = Properties.level_assets[Properties.current_level].unlocks.levels
 		Properties.unlocked_levels.append_array(level_unlocks)
 		get_tree().change_scene("res://screens/win/WinScreen.tscn")

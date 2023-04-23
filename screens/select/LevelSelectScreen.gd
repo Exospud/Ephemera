@@ -1,7 +1,7 @@
 extends Panel
 
 
-const PL_LEVEL_BUTTON := preload("res://assets/ui/textbutton/LevelButton.tscn")
+const PL_LEVEL_BUTTON := preload("res://assets/ui/text_button/LevelButton.tscn")
 
 
 # Called when the node enters the scene tree for the first time.

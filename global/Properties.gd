@@ -27,7 +27,7 @@ enum Towers {CAPACITOR, TURRET, AUTOCANNON, BARRICADE}
 const tower_assets := {
 	Towers.CAPACITOR: {
 		"name": "Capacitor",
-		"desc": "Powers adjacent 4 tiles. Cannot Attack. Destroy all of these to win.",
+		"desc": "Powers adjacent four tiles. Destroy all of these to win.",
 		"texture": preload("res://game/entities/towers/Capacitor/capacitor.png")
 	},
 	Towers.TURRET: {
@@ -42,7 +42,7 @@ const tower_assets := {
 	},
 	Towers.BARRICADE: {
 		"name": "Barricade",
-		"desc": "Defensive structure with high health. Cannot attack.",
+		"desc": "Defensive structure with high health. No abilities.",
 		"texture": preload("res://game/entities/towers/Barricade/barricade.png")
 	},
 }
