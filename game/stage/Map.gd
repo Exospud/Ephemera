@@ -2,7 +2,6 @@ extends TileMap
 
 
 onready var _camera : Camera2D = $"../Camera"
-onready var _tile_info : Label = $"../../HUD/TileInfo"
 onready var _tile_hover := $TileHover
 
 
@@ -15,14 +14,6 @@ func _process(delta: float):
 func _update_hover():
 	var mouse_cell = get_mouse_cell()
 	_set_tile_hover(mouse_cell)
-	
-	if is_valid_cell(mouse_cell):
-		var tileset_cell = get_cell_autotile_coord(mouse_cell.x, mouse_cell.y);
-		var tile_id = tileset_cell.y * 4 + tileset_cell.x
-		_tile_info.text = str(mouse_cell) + ":" + str(tile_id)
-	
-	else:
-		_tile_info.text = ""
 
 
 ## Moves the tile hover to the given cell, and sets visibility accordingly

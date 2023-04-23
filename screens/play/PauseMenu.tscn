@@ -46,6 +46,6 @@ anchor_right = 0.5
 anchor_bottom = 0.62
 text = "Quit"
 
-[connection signal="pressed" from="ResumeButton" to="." method="_toggle_pause"]
+[connection signal="pressed" from="ResumeButton" to="." method="toggle_pause"]
 [connection signal="pressed" from="RestartButton" to="." method="_reset_stage"]
 [connection signal="pressed" from="QuitButton" to="." method="_to_title"]

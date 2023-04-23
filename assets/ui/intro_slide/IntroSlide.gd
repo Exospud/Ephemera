@@ -5,7 +5,7 @@ export(Texture) var texture = preload("res://assets/missing.png")
 export var label_text := ""
 export var despawn_time := 30
 
-onready var _stage := $"../../../Stage"
+onready var _stage := $"/root/PlayScreen/Stage"
 
 
 # Called when the node enters the scene tree for the first time.

@@ -7,6 +7,8 @@ onready var _level : Level
 onready var _turn_label : Label = $"../HUD/TurnLabel"
 onready var _time_label : Label = $"../HUD/TimeLabel"
 onready var _select_buttons := $"../HUD/SelectButtons"
+onready var _play_button := $"../HUD/PlayButton"
+onready var _stop_button := $"../HUD/StopButton"
 onready var _end_timer : Timer = $EndTimer
 
 var turn_number : int = 0
@@ -29,7 +31,7 @@ func _ready():
 	
 	time_elapsed = _level.base_turn_duration
 	_end_timer.set_paused(true)
-	_end_turn()
+	end_turn()
 
 
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -42,10 +44,10 @@ func _process(delta: float):
 			_attempt_spawn()
 	
 	if Input.is_action_just_pressed("ui_accept"):
-		_start_turn() if setup_phase else _end_turn()
+		start_turn() if setup_phase else end_turn()
 
 
-# Check members of entity groups
+## Check members of entity groups
 func _check_groups():
 	# The level is considered won if all towers are destroyed
 	if get_tree().get_nodes_in_group("powered").empty():
@@ -53,7 +55,7 @@ func _check_groups():
 	
 	# End the current turn if no friendly units remain
 	if get_tree().get_nodes_in_group(str(Entity.Alignment.FRIENDLY)).empty():
-		_end_turn()
+		end_turn()
 
 
 func _attempt_spawn():
@@ -85,25 +87,30 @@ func _update_time(delta: float):
 		_time_label.text = "Phase: Attack"
 		time_elapsed += delta
 		if time_elapsed > time_limit:
-			_end_turn()
+			end_turn()
 		_time_label.text += "\nSeconds Left: " + str(ceil(time_limit - time_elapsed))
 
 
 ## If possible, ends the setup phase and starts the current turn
-func _start_turn():
+func start_turn():
 	if not setup_phase:
 		return
 	
 	setup_phase = false
+	_play_button.visible = false
+	_stop_button.visible = true
 	
 	for e in get_tree().get_nodes_in_group("entities"):
 		e.on_turn_start()
 
 
 ## If possible, completes the current turn and advances the current game by one turn if possible
-func _end_turn():
+func end_turn():
 	if setup_phase:
 		return
+	
+	_play_button.visible = true
+	_stop_button.visible = false
 	
 	for e in get_tree().get_nodes_in_group("entities"):
 		e.on_turn_end()
