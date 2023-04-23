@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/ui/intro_slide/intro_slide.tres" type="StyleBox" id=1]
 [ext_resource path="res://assets/missing.png" type="Texture" id=2]
 [ext_resource path="res://assets/fonts/TextFont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://assets/ui/intro_slide/IntroSlide.gd" type="Script" id=4]
 [ext_resource path="res://assets/ui/empty.tres" type="StyleBox" id=5]
+[ext_resource path="res://assets/ui/intro_slide/intro_slide_hover.tres" type="StyleBox" id=6]
 
 [node name="IntroSlide" type="Button"]
 anchor_left = 1.0
@@ -14,8 +15,8 @@ anchor_bottom = 0.25
 margin_left = -350.0
 margin_bottom = 72.0
 focus_mode = 0
-custom_styles/hover = ExtResource( 1 )
-custom_styles/pressed = ExtResource( 1 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 6 )
 custom_styles/focus = ExtResource( 5 )
 custom_styles/disabled = ExtResource( 5 )
 custom_styles/normal = ExtResource( 1 )

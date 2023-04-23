@@ -53,7 +53,7 @@ enum Levels {LEVEL_1, LEVEL_2, LEVEL_3}
 ## Dictionary of assets for levels
 const level_assets := {
 	Levels.LEVEL_1: {
-		"scene": preload("res://game/levels/TestLevel.tscn"),
+		"scene": preload("res://game/levels/01.tscn"),
 		"unlocks": {
 			"units": [Units.SNIDER],
 			"towers": [Towers.CAPACITOR, Towers.TURRET],
@@ -61,7 +61,7 @@ const level_assets := {
 		}
 	},
 	Levels.LEVEL_2: {
-		"scene": preload("res://game/levels/TestLevel.tscn"),
+		"scene": preload("res://game/levels/02.tscn"),
 		"unlocks": {
 			"units": [Units.SNASER],
 			"towers": [Towers.BARRICADE],
@@ -69,7 +69,7 @@ const level_assets := {
 		}
 	},
 	Levels.LEVEL_3: {
-		"scene": preload("res://game/levels/TestLevel.tscn"),
+		"scene": preload("res://game/levels/03.tscn"),
 		"unlocks": {
 			"units": [],
 			"towers": [Towers.AUTOCANNON],
@@ -78,5 +78,5 @@ const level_assets := {
 	},
 }
 
-var unlocked_levels := [Levels.LEVEL_1]
+var unlocked_levels := [Levels.LEVEL_1, Levels.LEVEL_3]
 var current_level : int = -1

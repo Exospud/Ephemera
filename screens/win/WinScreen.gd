@@ -27,4 +27,4 @@ func _retry_level():
 
 ## Sends the user back to the title screen
 func _quit_to_title():
-	get_tree().change_scene("res://screens/title/TitleScreen.tscn")
+	get_tree().change_scene("res://screens/select/LevelSelectScreen.tscn")

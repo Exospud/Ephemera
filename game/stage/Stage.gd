@@ -2,14 +2,15 @@ extends Node2D
 
 
 onready var _map := $Map
+onready var _spawn_border := $Map/SpawnBorder
 onready var _level : Level
+onready var _end_timer : Timer = $EndTimer
 
 onready var _turn_label : Label = $"../HUD/TurnLabel"
 onready var _time_label : Label = $"../HUD/TimeLabel"
 onready var _select_buttons := $"../HUD/SelectButtons"
 onready var _play_button := $"../HUD/PlayButton"
 onready var _stop_button := $"../HUD/StopButton"
-onready var _end_timer : Timer = $EndTimer
 
 var turn_number : int = 0
 var time_elapsed : float = 0.0
@@ -21,15 +22,7 @@ var can_place := false
 
 ## Called when the node enters the scene tree for the first time.
 func _ready():
-	var assets = Properties.level_assets[Properties.current_level]
-	_level = assets.scene.instance()
-	add_child(_level)
-	
-	_select_buttons.clear_children()
-	_select_buttons.set_buttons(_level)
-	_select_buttons.set_intro_slides(assets.unlocks)
-	
-	time_elapsed = _level.base_turn_duration
+	_init_level()
 	_end_timer.set_paused(true)
 	end_turn()
 
@@ -45,6 +38,19 @@ func _process(delta: float):
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		start_turn() if setup_phase else end_turn()
+
+
+func _init_level():
+	var assets = Properties.level_assets[Properties.current_level]
+	_level = assets.scene.instance()
+	add_child(_level)
+	
+	_select_buttons.clear_children()
+	_select_buttons.set_buttons(_level)
+	_select_buttons.set_intro_slides(assets.unlocks)
+	_spawn_border.position.x = _level.spawn_area_width * _map.cell_size.x
+	
+	time_elapsed = _level.base_turn_duration
 
 
 ## Check members of entity groups
@@ -64,14 +70,14 @@ func _attempt_spawn():
 	
 	if selected_unit < 0:
 		return
-		
+	
 	var cost : int = Properties.unit_assets[selected_unit].cost
 	
 	if energy < cost:
 		return
 	
 	var mouse_cell : Vector2 = _map.get_mouse_cell()
-	if _level.cell_available(mouse_cell) and mouse_cell.x < 5:
+	if _level.cell_available(mouse_cell) and mouse_cell.x < _level.spawn_area_width:
 		_level.spawn_entity(mouse_cell, selected_unit)
 		energy -= cost
 
@@ -118,7 +124,6 @@ func end_turn():
 	# The level is considered lost if the turn limit has been exceeded
 	if turn_number >= _level.max_turns:
 		_end_timer.set_paused(false)
-		return
 	
 	var time_remaining := ceil(_level.base_turn_duration - time_elapsed)
 	
@@ -132,7 +137,11 @@ func end_turn():
 func _end_game():
 	if get_tree().get_nodes_in_group("powered").empty():
 		var level_unlocks : Array = Properties.level_assets[Properties.current_level].unlocks.levels
-		Properties.unlocked_levels.append_array(level_unlocks)
+		
+		for unlock in level_unlocks:
+			if not Properties.unlocked_levels.has(unlock):
+				Properties.unlocked_levels.append(unlock)
+		
 		get_tree().change_scene("res://screens/win/WinScreen.tscn")
 	else:
 		get_tree().change_scene("res://screens/loss/LossScreen.tscn")
