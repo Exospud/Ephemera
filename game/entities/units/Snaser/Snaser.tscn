@@ -6,7 +6,8 @@
 
 [node name="Snaser" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
-ability_delay = 1.0
+speed = 0.8
+ability_delay = 0.8
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )

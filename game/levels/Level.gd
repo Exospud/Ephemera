@@ -1,7 +1,7 @@
 class_name Level extends Node2D
 
 
-enum Units {SNIDER, SNASER} ## Enum exports broken lol, copy from Properties.Units
+enum Units {SNIDER, SNASER, ROCKMITE} ## Enum exports broken lol, copy from Properties.Units
 
 export var max_turns := 10
 export var base_turn_duration := 15

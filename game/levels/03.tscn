@@ -8,7 +8,7 @@
 
 [node name="Level" instance=ExtResource( 1 )]
 max_turns = 5
-spawnable = [ 0, 1 ]
+spawnable = [ 0, 2 ]
 
 [node name="Turret2" parent="." index="0" instance=ExtResource( 4 )]
 cell = Vector2( 8, 1 )
@@ -41,19 +41,28 @@ cell = Vector2( 7, 2 )
 cell = Vector2( 6, 3 )
 
 [node name="Barricade" parent="." index="10" instance=ExtResource( 5 )]
-cell = Vector2( 7, 4 )
+cell = Vector2( 5, 4 )
 
 [node name="Barricade2" parent="." index="11" instance=ExtResource( 5 )]
 cell = Vector2( 6, 2 )
 
-[node name="Autocannon" parent="." index="12" instance=ExtResource( 3 )]
+[node name="Barricade3" parent="." index="12" instance=ExtResource( 5 )]
+cell = Vector2( 8, 3 )
+
+[node name="Barricade4" parent="." index="13" instance=ExtResource( 5 )]
+cell = Vector2( 6, 4 )
+
+[node name="Barricade5" parent="." index="14" instance=ExtResource( 5 )]
+cell = Vector2( 5, 0 )
+
+[node name="Autocannon" parent="." index="15" instance=ExtResource( 3 )]
 cell = Vector2( 9, 2 )
 
-[node name="Autocannon2" parent="." index="13" instance=ExtResource( 3 )]
+[node name="Autocannon2" parent="." index="16" instance=ExtResource( 3 )]
 cell = Vector2( 9, 3 )
 
-[node name="Autocannon3" parent="." index="14" instance=ExtResource( 3 )]
+[node name="Autocannon3" parent="." index="17" instance=ExtResource( 3 )]
 cell = Vector2( 9, 0 )
 
-[node name="Autocannon4" parent="." index="15" instance=ExtResource( 3 )]
+[node name="Autocannon4" parent="." index="18" instance=ExtResource( 3 )]
 cell = Vector2( 7, 1 )

@@ -48,7 +48,7 @@ func _has_power() -> bool:
 		if abs(e.cell.x - cell.x) + abs(e.cell.y - cell.y) > 1:
 			continue
 		
-		if e.is_in_group(str(alignment)):
+		if e.alignment == self.alignment:
 			return true
 	
 	return false

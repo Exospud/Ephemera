@@ -1,7 +1,7 @@
 extends Node
 
 
-enum Units {SNIDER, SNASER}
+enum Units {SNIDER, SNASER, ROCKMITE}
 
 ## Dictionary of assets for spawnable units
 const unit_assets := {
@@ -18,11 +18,18 @@ const unit_assets := {
 		"cost": 2,
 		"scene": preload("res://game/entities/units/Snaser/Snaser.tscn"),
 		"texture": preload("res://game/entities/units/Snaser/snaser.png")
+	},
+	Units.ROCKMITE: {
+		"name": "Rockmite",
+		"desc": "Slow, powerful melee unit. Deals increased damage to barricades.",
+		"cost": 2,
+		"scene": preload("res://game/entities/units/Rockmite/Rockmite.tscn"),
+		"texture": preload("res://game/entities/units/Rockmite/rockmite.png")
 	}
 }
 
 
-enum Towers {CAPACITOR, TURRET, AUTOCANNON, BARRICADE}
+enum Towers {CAPACITOR, TURRET, AUTOCANNON, BARRICADE, WIRE}
 
 const tower_assets := {
 	Towers.CAPACITOR: {
@@ -45,10 +52,15 @@ const tower_assets := {
 		"desc": "Defensive structure with high health. No abilities.",
 		"texture": preload("res://game/entities/towers/Barricade/barricade.png")
 	},
+	Towers.WIRE: {
+		"name": "Electric Wire",
+		"desc": "Slows units passing over. If powered, deals damage as well.",
+		"texture": preload("res://game/entities/towers/Wire/charged_wire.png")
+	},
 }
 
 
-enum Levels {LEVEL_1, LEVEL_2, LEVEL_3}
+enum Levels {LEVEL_1, LEVEL_2, LEVEL_3, LEVEL_TEST}
 
 ## Dictionary of assets for levels
 const level_assets := {
@@ -63,7 +75,7 @@ const level_assets := {
 	Levels.LEVEL_2: {
 		"scene": preload("res://game/levels/02.tscn"),
 		"unlocks": {
-			"units": [Units.SNASER],
+			"units": [Units.ROCKMITE],
 			"towers": [Towers.BARRICADE],
 			"levels": [Levels.LEVEL_3]
 		}
@@ -76,7 +88,15 @@ const level_assets := {
 			"levels": []
 		}
 	},
+	Levels.LEVEL_TEST: {
+		"scene": preload("res://game/levels/TestLevel.tscn"),
+		"unlocks": {
+			"units": [Units.SNASER],
+			"towers": [Towers.WIRE],
+			"levels": []
+		}
+	},
 }
 
-var unlocked_levels := [Levels.LEVEL_1, Levels.LEVEL_3]
+var unlocked_levels := [Levels.LEVEL_1, Levels.LEVEL_2, Levels.LEVEL_3, Levels.LEVEL_TEST]
 var current_level : int = -1

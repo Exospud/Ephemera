@@ -1,7 +1,7 @@
 class_name Unit extends Deployable
 
 
-export(Vector2) var velocity := Vector2.RIGHT # tiles/second
+export var speed := 1.0 # tiles/second
 export var attack_damage := 1
 export var attack_delay := 0.5
 
@@ -19,8 +19,19 @@ func _ready():
 ## Called at a constant rate. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if not _stage.setup_phase:
+		var slowed := false
+		for entity in get_overlapping_areas():
+			if entity.alignment == self.alignment:
+				continue
+			
+			if entity.is_in_group("wires"):
+				slowed = true
+		
 		if _attack_targets.empty():
-			position += 32 * velocity * delta
+			if slowed:
+				position.x += 16 * speed * delta
+			else:
+				position.x += 32 * speed * delta
 			_check_bounds()
 
 

@@ -14,10 +14,11 @@ func _process(delta):
 func _next_level():
 	var level_unlocks : Array = Properties.level_assets[Properties.current_level].unlocks.levels
 	
-	if not level_unlocks.empty():
+	if level_unlocks.empty():
+		get_tree().change_scene("res://screens/select/LevelSelectScreen.tscn")
+	else:
 		Properties.current_level = level_unlocks[0]
-	
-	get_tree().change_scene("res://screens/play/PlayScreen.tscn")
+		get_tree().change_scene("res://screens/play/PlayScreen.tscn")
 
 
 ## Renitializes and replays the last attempted level

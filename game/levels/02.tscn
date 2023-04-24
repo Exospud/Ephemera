@@ -7,7 +7,7 @@
 
 [node name="Level" instance=ExtResource( 1 )]
 max_turns = 5
-spawnable = [ 0, 1 ]
+spawnable = [ 0, 2 ]
 
 [node name="Turret" parent="." index="0" instance=ExtResource( 4 )]
 cell = Vector2( 9, 1 )
@@ -56,3 +56,9 @@ cell = Vector2( 5, 2 )
 
 [node name="Barricade3" parent="." index="15" instance=ExtResource( 3 )]
 cell = Vector2( 6, 0 )
+
+[node name="Barricade4" parent="." index="16" instance=ExtResource( 3 )]
+cell = Vector2( 5, 3 )
+
+[node name="Barricade5" parent="." index="17" instance=ExtResource( 3 )]
+cell = Vector2( 5, 4 )
