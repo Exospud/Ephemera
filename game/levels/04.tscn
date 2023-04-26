@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://game/levels/Level.gd" type="Script" id=1]
+[ext_resource path="res://game/entities/towers/Wire/Wire.tscn" type="PackedScene" id=2]
+[ext_resource path="res://game/entities/towers/Autocannon/Autocannon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game/entities/towers/Turret/Turret.tscn" type="PackedScene" id=4]
+[ext_resource path="res://game/entities/towers/Barricade/Barricade.tscn" type="PackedScene" id=5]
+[ext_resource path="res://game/entities/towers/Capacitor/Capacitor.tscn" type="PackedScene" id=6]
+
+[node name="Level" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+max_turns = 5
+spawnable = [ 0, 1, 2 ]
+
+[node name="Autocannon" parent="." instance=ExtResource( 3 )]
+cell = Vector2( 8, 2 )
+
+[node name="Autocannon2" parent="." instance=ExtResource( 3 )]
+cell = Vector2( 8, 4 )
+
+[node name="Autocannon3" parent="." instance=ExtResource( 3 )]
+cell = Vector2( 8, 1 )
+
+[node name="Barricade" parent="." instance=ExtResource( 5 )]
+cell = Vector2( 5, 2 )
+
+[node name="Barricade2" parent="." instance=ExtResource( 5 )]
+cell = Vector2( 7, 0 )
+
+[node name="Barricade3" parent="." instance=ExtResource( 5 )]
+cell = Vector2( 7, 4 )
+
+[node name="Barricade4" parent="." instance=ExtResource( 5 )]
+cell = Vector2( 4, 1 )
+
+[node name="Capacitor" parent="." instance=ExtResource( 6 )]
+cell = Vector2( 6, 2 )
+
+[node name="Capacitor2" parent="." instance=ExtResource( 6 )]
+cell = Vector2( 8, 3 )
+
+[node name="Capacitor3" parent="." instance=ExtResource( 6 )]
+cell = Vector2( 9, 4 )
+
+[node name="Capacitor4" parent="." instance=ExtResource( 6 )]
+cell = Vector2( 8, 0 )
+
+[node name="Capacitor5" parent="." instance=ExtResource( 6 )]
+cell = Vector2( 9, 1 )
+
+[node name="Turret" parent="." instance=ExtResource( 4 )]
+cell = Vector2( 9, 0 )
+
+[node name="Turret2" parent="." instance=ExtResource( 4 )]
+cell = Vector2( 9, 3 )
+
+[node name="Turret3" parent="." instance=ExtResource( 4 )]
+cell = Vector2( 7, 2 )
+
+[node name="Turret4" parent="." instance=ExtResource( 4 )]
+cell = Vector2( 9, 2 )
+
+[node name="Turret5" parent="." instance=ExtResource( 4 )]
+cell = Vector2( 7, 1 )
+
+[node name="Wire" parent="." instance=ExtResource( 2 )]
+cell = Vector2( 6, 3 )
+
+[node name="Wire2" parent="." instance=ExtResource( 2 )]
+cell = Vector2( 7, 3 )
+
+[node name="Wire3" parent="." instance=ExtResource( 2 )]
+cell = Vector2( 6, 0 )
+
+[node name="Wire4" parent="." instance=ExtResource( 2 )]
+cell = Vector2( 6, 1 )
+
+[node name="Wire5" parent="." instance=ExtResource( 2 )]
+cell = Vector2( 4, 3 )

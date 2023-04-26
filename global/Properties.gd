@@ -61,7 +61,7 @@ const tower_assets := {
 }
 
 
-enum Levels {LEVEL_1, LEVEL_2, LEVEL_3, LEVEL_TEST}
+enum Levels {LEVEL_1, LEVEL_2, LEVEL_3, LEVEL_4, LEVEL_5, LEVEL_TEST}
 
 ## Dictionary of assets for levels
 const level_assets := {
@@ -86,19 +86,34 @@ const level_assets := {
 		"unlocks": {
 			"units": [],
 			"towers": [Towers.AUTOCANNON],
-			"levels": []
+			"levels": [Levels.LEVEL_4]
 		}
 	},
-	Levels.LEVEL_TEST: {
-		"scene": preload("res://game/levels/TestLevel.tscn"),
+	Levels.LEVEL_4: {
+		"scene": preload("res://game/levels/04.tscn"),
 		"unlocks": {
 			"units": [Units.SNASER],
 			"towers": [Towers.WIRE],
 			"levels": []
 		}
 	},
+	Levels.LEVEL_5: {
+		"scene": preload("res://game/levels/05.tscn"),
+		"unlocks": {
+			"units": [],
+			"towers": [],
+			"levels": []
+		}
+	},
+	Levels.LEVEL_TEST: {
+		"scene": preload("res://game/levels/TestLevel.tscn"),
+		"unlocks": {
+			"units": [],
+			"towers": [],
+			"levels": []
+		}
+	},
 }
 
-var unlocked_levels := [Levels.LEVEL_1, Levels.LEVEL_2, Levels.LEVEL_3, Levels.LEVEL_TEST]
+var unlocked_levels := [Levels.LEVEL_1]
 var current_level : int = -1
-var volume := 1.0
