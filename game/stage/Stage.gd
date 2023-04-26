@@ -25,6 +25,7 @@ var can_place := false
 func _ready():
 	_init_level()
 	Music.set_audio_track(Music.Tracks.COMBAT)
+	_place_sound.volume_db = linear2db(pow(Music.get_global_volume(), 2)) + 8
 	_end_timer.set_paused(true)
 	end_turn()
 

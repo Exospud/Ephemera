@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://screens/title/TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/TextLabel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/ui/text_button/TextButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/ui/default_scene_bg.tres" type="StyleBox" id=4]
+[ext_resource path="res://assets/fonts/MainMenuFont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://assets/ui/slider.tres" type="StyleBox" id=6]
+[ext_resource path="res://assets/ui/slider.png" type="Texture" id=7]
+[ext_resource path="res://assets/ui/volume_icon.png" type="Texture" id=8]
 
 [node name="TitleScreen" type="Panel"]
 anchor_right = 1.0
@@ -23,21 +27,60 @@ margin_left = -181.5
 margin_top = -24.0
 margin_right = 181.5
 margin_bottom = 24.0
-text = "Ephemeral Legion"
+custom_fonts/font = ExtResource( 5 )
+text = "Ephemera"
 
 [node name="PlayButton" parent="." instance=ExtResource( 3 )]
 anchor_left = 0.5
-anchor_top = 0.4
+anchor_top = 0.44
 anchor_right = 0.5
-anchor_bottom = 0.4
+anchor_bottom = 0.44
 text = "Play"
 
 [node name="ExitButton" parent="." instance=ExtResource( 3 )]
 anchor_left = 0.5
-anchor_top = 0.52
+anchor_top = 0.56
 anchor_right = 0.5
-anchor_bottom = 0.52
+anchor_bottom = 0.56
 text = "Exit"
+
+[node name="HSlider" type="HSlider" parent="."]
+anchor_left = 0.5
+anchor_top = 0.8
+anchor_right = 0.5
+anchor_bottom = 0.8
+margin_left = -62.0
+margin_top = -20.0
+margin_right = 138.0
+margin_bottom = 20.0
+custom_icons/grabber_highlight = ExtResource( 7 )
+custom_icons/grabber = ExtResource( 7 )
+custom_styles/slider = ExtResource( 6 )
+custom_styles/grabber_area_highlight = ExtResource( 6 )
+custom_styles/grabber_area = ExtResource( 6 )
+max_value = 1.0
+step = 0.1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.8
+anchor_right = 0.5
+anchor_bottom = 0.8
+margin_left = -142.0
+margin_top = -32.0
+margin_right = -78.0
+margin_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource( 8 )
+stretch_mode = 3
+__meta__ = {
+"_edit_lock_": true
+}
 
 [connection signal="pressed" from="PlayButton" to="." method="_to_level_select"]
 [connection signal="pressed" from="ExitButton" to="." method="_exit"]
+[connection signal="value_changed" from="HSlider" to="." method="_set_volume"]
