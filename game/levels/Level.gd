@@ -45,3 +45,4 @@ func spawn_entity(cell: Vector2, unit: int):
 		var entity : Entity = Properties.unit_assets[unit].scene.instance()
 		add_child(entity)
 		entity.set_cell(cell)
+		

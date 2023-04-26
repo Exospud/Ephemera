@@ -4,7 +4,8 @@ extends Node2D
 onready var _map := $Map
 onready var _spawn_border := $Map/SpawnBorder
 onready var _level : Level
-onready var _end_timer : Timer = $EndTimer
+onready var _end_timer := $EndTimer
+onready var _place_sound := $PlaceSound
 
 onready var _turn_label : Label = $"../HUD/TurnLabel"
 onready var _time_label : Label = $"../HUD/TimeLabel"
@@ -23,6 +24,7 @@ var can_place := false
 ## Called when the node enters the scene tree for the first time.
 func _ready():
 	_init_level()
+	Music.set_audio_track(Music.Tracks.COMBAT)
 	_end_timer.set_paused(true)
 	end_turn()
 
@@ -38,8 +40,7 @@ func _process(delta: float):
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		if setup_phase:
-			if not get_tree().get_nodes_in_group(str(Entity.Alignment.FRIENDLY)).empty():
-				start_turn()
+			start_turn()
 		else:
 			end_turn()
 
@@ -84,6 +85,7 @@ func _attempt_spawn():
 	if _level.cell_available(mouse_cell) and mouse_cell.x < _level.spawn_area_width:
 		_level.spawn_entity(mouse_cell, selected_unit)
 		energy -= cost
+		_place_sound.play()
 
 
 ## Updates time elapsed if the attacking phase is active
@@ -104,6 +106,9 @@ func _update_time(delta: float):
 ## If possible, ends the setup phase and starts the current turn
 func start_turn():
 	if not setup_phase:
+		return
+	
+	if get_tree().get_nodes_in_group(str(Entity.Alignment.FRIENDLY)).empty():
 		return
 	
 	setup_phase = false

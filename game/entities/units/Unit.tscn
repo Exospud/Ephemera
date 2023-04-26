@@ -27,4 +27,3 @@ one_shot = true
 [connection signal="area_entered" from="." to="." method="_on_area_enter"]
 [connection signal="area_exited" from="." to="." method="_on_area_exit"]
 [connection signal="timeout" from="AttackTimer" to="." method="_attack"]
-[connection signal="timeout" from="HurtTimer" to="." method="_demodulate"]

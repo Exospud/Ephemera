@@ -6,6 +6,7 @@ const PL_LEVEL_BUTTON := preload("res://assets/ui/text_button/LevelButton.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Music.set_audio_track(Music.Tracks.TITLE)
 	var margin_size := Vector2(30, 20)
 	
 	for i in range(0, Properties.unlocked_levels.size()):

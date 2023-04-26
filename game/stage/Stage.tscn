@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/tiles/terrain.tres" type="TileSet" id=1]
 [ext_resource path="res://game/stage/Stage.gd" type="Script" id=2]
 [ext_resource path="res://game/stage/Map.gd" type="Script" id=3]
 [ext_resource path="res://game/stage/Camera.gd" type="Script" id=4]
+[ext_resource path="res://assets/sounds/place.wav" type="AudioStream" id=5]
 
 [node name="Stage" type="Node2D"]
 script = ExtResource( 2 )
@@ -47,5 +48,9 @@ __meta__ = {
 [node name="EndTimer" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[node name="PlaceSound" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 5 )
 
 [connection signal="timeout" from="EndTimer" to="." method="_end_game"]

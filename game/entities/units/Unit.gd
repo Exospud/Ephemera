@@ -6,6 +6,7 @@ export var attack_damage := 1
 export var attack_delay := 0.5
 
 var _attack_targets = []
+var visibility := 1.0
 
 onready var _sprite := $Sprite
 onready var _attack_timer := $AttackTimer
@@ -19,6 +20,11 @@ func _ready():
 ## Called at a constant rate. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if not _stage.setup_phase:
+		visibility = (2.0 - _stage.time_elapsed / _level.base_turn_duration) * 0.5
+		_sprite.self_modulate.a = visibility
+		if $HurtTimer.time_left > 0:
+			_sprite.self_modulate.a *= 0.7
+		
 		var slowed := false
 		var hasted := false
 		
@@ -76,12 +82,7 @@ func adjust_health(value: int):
 	.adjust_health(value)
 	
 	if value < 0:
-		sprite.self_modulate.a = 0.7
 		$HurtTimer.start()
-
-
-func _demodulate():
-	sprite.self_modulate.a = 1.0
 
 
 ## (OVERRIDE)

@@ -101,3 +101,4 @@ const level_assets := {
 
 var unlocked_levels := [Levels.LEVEL_1, Levels.LEVEL_2, Levels.LEVEL_3, Levels.LEVEL_TEST]
 var current_level : int = -1
+var volume := 1.0
