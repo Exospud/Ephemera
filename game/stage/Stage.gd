@@ -1,6 +1,16 @@
 extends Node2D
 
 
+const level_scenes := {
+	Properties.Levels.LEVEL_1: "res://game/levels/01.tscn",
+	Properties.Levels.LEVEL_2: "res://game/levels/02.tscn",
+	Properties.Levels.LEVEL_3: "res://game/levels/03.tscn",
+	Properties.Levels.LEVEL_4: "res://game/levels/04.tscn",
+	Properties.Levels.LEVEL_5: "res://game/levels/05.tscn",
+	Properties.Levels.LEVEL_TEST: "res://game/levels/TestLevel.tscn",
+}
+
+
 onready var _map := $Map
 onready var _spawn_border := $Map/SpawnBorder
 onready var _level : Level
@@ -48,7 +58,7 @@ func _process(delta: float):
 
 func _init_level():
 	var assets = Properties.level_assets[Properties.current_level]
-	_level = assets.scene.instance()
+	_level = load(level_scenes[Properties.current_level]).instance()
 	add_child(_level)
 	
 	_select_buttons.clear_children()
@@ -134,8 +144,6 @@ func end_turn():
 	# The level is considered lost if the turn limit has been exceeded
 	if turn_number >= _level.max_turns:
 		_end_timer.set_paused(false)
-	
-	var time_remaining := ceil(_level.base_turn_duration - time_elapsed)
 	
 	turn_number += 1
 	setup_phase = true

@@ -4,6 +4,13 @@ class_name Level extends Node2D
 ## Enum exports broken for some reason, copy from Properties.Units
 enum Units {SNIDER, SNASER, CORROSLUG}
 
+const scenes := {
+	Units.SNIDER: "res://game/entities/units/Snider/Snider.tscn",
+	Units.SNASER: "res://game/entities/units/Snaser/Snaser.tscn",
+	Units.CORROSLUG: "res://game/entities/units/Corroslug/Corroslug.tscn"
+}
+
+
 export var max_turns := 10
 export var base_turn_duration := 15
 export var base_energy_gen := 5
@@ -42,7 +49,7 @@ func get_entity(cell: Vector2) -> Node2D:
 #$ Spawns an entity at the specified cell if possible
 func spawn_entity(cell: Vector2, unit: int):
 	if cell_available(cell):
-		var entity : Entity = Properties.unit_assets[unit].scene.instance()
+		var entity : Entity = load(scenes[unit]).instance()
 		add_child(entity)
 		entity.set_cell(cell)
 		

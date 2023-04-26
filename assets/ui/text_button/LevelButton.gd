@@ -1,7 +1,7 @@
 extends Button
 
 
-export(Properties.Levels) var level : int
+export var level : int
 
 
 func _start_level():

@@ -19,7 +19,7 @@ func set_buttons(level: Level):
 	for i in range(0, level.spawnable.size()):
 		var unit_button := PL_UNIT_BUTTON.instance()
 		var spawn = Properties.unit_assets[level.spawnable[i]]
-		unit_button.texture = spawn.texture
+		unit_button.texture = load(spawn.texture)
 		unit_button.label_text = spawn.cost
 		unit_button.spawn = level.spawnable[i]
 		
@@ -41,7 +41,7 @@ func set_intro_slides(unlocks):
 		var intro_slide := PL_INTRO_SLIDE.instance()
 		var unit = Properties.unit_assets[unlocks.units[j]]
 		
-		intro_slide.texture = unit.texture
+		intro_slide.texture = load(unit.texture)
 		intro_slide.label_text = unit.name + ": " + unit.desc
 		
 		var slide_size = intro_slide.rect_size
@@ -56,7 +56,7 @@ func set_intro_slides(unlocks):
 		var intro_slide := PL_INTRO_SLIDE.instance()
 		var tower = Properties.tower_assets[unlocks.towers[j]]
 		
-		intro_slide.texture = tower.texture
+		intro_slide.texture = load(tower.texture)
 		intro_slide.label_text = tower.name + ": " + tower.desc
 		
 		var slide_size = intro_slide.rect_size
