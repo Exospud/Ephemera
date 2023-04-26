@@ -18,4 +18,9 @@ shape = SubResource( 1 )
 [node name="AttackTimer" type="Timer" parent="." index="2"]
 one_shot = true
 
+[node name="CheckPowerState" type="Timer" parent="." index="3"]
+wait_time = 0.1
+autostart = true
+
 [connection signal="timeout" from="AttackTimer" to="." method="_use_ability"]
+[connection signal="timeout" from="CheckPowerState" to="." method="_check_power_state"]

@@ -18,9 +18,3 @@ region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="Collider" parent="." index="1"]
 shape = SubResource( 1 )
-
-[node name="PowerState" type="Timer" parent="." index="3"]
-wait_time = 0.1
-autostart = true
-
-[connection signal="timeout" from="PowerState" to="." method="_check_power_state"]

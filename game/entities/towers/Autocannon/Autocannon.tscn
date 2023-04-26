@@ -8,3 +8,5 @@ attack_delay = 0.4
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 24, 24 )

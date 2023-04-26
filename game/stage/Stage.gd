@@ -37,7 +37,11 @@ func _process(delta: float):
 			_attempt_spawn()
 	
 	if Input.is_action_just_pressed("ui_accept"):
-		start_turn() if setup_phase else end_turn()
+		if setup_phase:
+			if not get_tree().get_nodes_in_group(str(Entity.Alignment.FRIENDLY)).empty():
+				start_turn()
+		else:
+			end_turn()
 
 
 func _init_level():

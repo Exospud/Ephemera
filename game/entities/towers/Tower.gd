@@ -43,6 +43,13 @@ func _has_target() -> bool:
 	return false
 
 
+func _check_power_state():
+	if not _has_power() and sprite.texture.get_size().x > sprite.region_rect.size.x:
+		sprite.region_rect.position.x = sprite.region_rect.size.x
+	else:
+		sprite.region_rect.position.x = 0
+
+
 func _has_power() -> bool:
 	for e in get_tree().get_nodes_in_group("powered"):
 		if abs(e.cell.x - cell.x) + abs(e.cell.y - cell.y) > 1:

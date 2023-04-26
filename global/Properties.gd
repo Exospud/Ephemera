@@ -41,12 +41,12 @@ const tower_assets := {
 	Towers.TURRET: {
 		"name": "Turret",
 		"desc": "Crudely constructed defensive tower. Slowly fires plasma bolts.",
-		"texture": preload("res://game/entities/towers/Turret/turret.png")
+		"texture": preload("res://game/entities/towers/Turret/turret_icon.png")
 	},
 	Towers.AUTOCANNON: {
 		"name": "Autocannon",
 		"desc": "Powerful defensive tower. Rapidly fires plasma bolts.",
-		"texture": preload("res://game/entities/towers/Autocannon/autocannon.png")
+		"texture": preload("res://game/entities/towers/Autocannon/autocannon_icon.png")
 	},
 	Towers.BARRICADE: {
 		"name": "Barricade",
@@ -56,7 +56,7 @@ const tower_assets := {
 	Towers.WIRE: {
 		"name": "Electric Wire",
 		"desc": "Slows units passing over. If powered, deals damage as well.",
-		"texture": preload("res://game/entities/towers/Wire/charged_wire.png")
+		"texture": preload("res://game/entities/towers/Wire/wire_icon.png")
 	},
 }
 

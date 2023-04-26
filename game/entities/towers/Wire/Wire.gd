@@ -17,10 +17,3 @@ func _use_ability():
 ## (OVERRIDE)
 func _has_target() -> bool:
 	return get_overlapping_areas().size() > 0
-
-
-func _check_power_state():
-	if _has_power():
-		$Sprite.region_rect.position.x = 32
-	else:
-		$Sprite.region_rect.position.x = 0
