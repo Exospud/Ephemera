@@ -49,7 +49,7 @@ cell = Vector2( 6, 2 )
 cell = Vector2( 8, 4 )
 
 [node name="Barricade" parent="." index="13" instance=ExtResource( 3 )]
-cell = Vector2( 8, 3 )
+cell = Vector2( 7, 3 )
 
 [node name="Barricade2" parent="." index="14" instance=ExtResource( 3 )]
 cell = Vector2( 5, 2 )

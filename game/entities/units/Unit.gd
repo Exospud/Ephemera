@@ -20,18 +20,26 @@ func _ready():
 func _physics_process(delta):
 	if not _stage.setup_phase:
 		var slowed := false
+		var hasted := false
+		
 		for entity in get_overlapping_areas():
 			if entity.alignment == self.alignment:
 				continue
 			
-			if entity.is_in_group("wires"):
+			if entity.is_in_group("slowing"):
 				slowed = true
+			
+			if entity.is_in_group("hasting"):
+				hasted = true
 		
 		if _attack_targets.empty():
+			var multiplier = 32
+			if hasted:
+				multiplier += 16
 			if slowed:
-				position.x += 16 * speed * delta
-			else:
-				position.x += 32 * speed * delta
+				multiplier *= 0.5
+			
+			position.x += multiplier * speed * delta
 			_check_bounds()
 
 
@@ -61,6 +69,19 @@ func _attack():
 	
 	_attack_targets[0].adjust_health(-attack_damage)
 	_attack_timer.start(attack_delay)
+
+
+## (OVERRIDE)
+func adjust_health(value: int):
+	.adjust_health(value)
+	
+	if value < 0:
+		sprite.self_modulate.a = 0.7
+		$HurtTimer.start()
+
+
+func _demodulate():
+	sprite.self_modulate.a = 1.0
 
 
 ## (OVERRIDE)

@@ -1,7 +1,8 @@
 extends Node
 
 
-enum Units {SNIDER, SNASER, ROCKMITE}
+## Copy to Level.gd
+enum Units {SNIDER, SNASER, CORROSLUG}
 
 ## Dictionary of assets for spawnable units
 const unit_assets := {
@@ -19,12 +20,12 @@ const unit_assets := {
 		"scene": preload("res://game/entities/units/Snaser/Snaser.tscn"),
 		"texture": preload("res://game/entities/units/Snaser/snaser.png")
 	},
-	Units.ROCKMITE: {
-		"name": "Rockmite",
+	Units.CORROSLUG: {
+		"name": "Corroslug",
 		"desc": "Slow, powerful melee unit. Deals increased damage to barricades.",
 		"cost": 2,
-		"scene": preload("res://game/entities/units/Rockmite/Rockmite.tscn"),
-		"texture": preload("res://game/entities/units/Rockmite/rockmite.png")
+		"scene": preload("res://game/entities/units/Corroslug/Corroslug.tscn"),
+		"texture": preload("res://game/entities/units/Corroslug/corroslug.png")
 	}
 }
 
@@ -75,7 +76,7 @@ const level_assets := {
 	Levels.LEVEL_2: {
 		"scene": preload("res://game/levels/02.tscn"),
 		"unlocks": {
-			"units": [Units.ROCKMITE],
+			"units": [Units.CORROSLUG],
 			"towers": [Towers.BARRICADE],
 			"levels": [Levels.LEVEL_3]
 		}

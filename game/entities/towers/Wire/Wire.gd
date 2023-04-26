@@ -1,17 +1,22 @@
 extends Tower
 
 
+## (OVERRIDE)
 func _use_ability():
-	var powered := _has_power()
+	if not _has_power() or not _has_target():
+		_attack_timer.start(0.1)
+		return
 	
 	for entity in get_overlapping_areas():
-		if entity.alignment == self.alignment:
-			continue
-		
-		if powered:
+		if entity.alignment != self.alignment:
 			entity.adjust_health(-1)
 	
 	_attack_timer.start(attack_delay)
+
+
+## (OVERRIDE)
+func _has_target() -> bool:
+	return get_overlapping_areas().size() > 0
 
 
 func _check_power_state():

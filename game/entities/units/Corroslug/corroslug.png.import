@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rockmite.png-627a24b55b0c8adac31810ec035fe9d7.stex"
+path="res://.import/corroslug.png-77febfc9b4613cbbbe9c804ecd7abb3a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/entities/units/Rockmite/rockmite.png"
-dest_files=[ "res://.import/rockmite.png-627a24b55b0c8adac31810ec035fe9d7.stex" ]
+source_file="res://game/entities/units/Corroslug/corroslug.png"
+dest_files=[ "res://.import/corroslug.png-77febfc9b4613cbbbe9c804ecd7abb3a.stex" ]
 
 [params]
 
